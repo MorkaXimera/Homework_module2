@@ -10,3 +10,13 @@ def mask_account_card(discription: str):
         masked_account = get_mask_card_number(insert_data[-1])
 
     return masked_account
+
+
+def get_date(date_str: str):
+    '''Функция возвращает дату в формате ДД.ММ.ГГГГ'''
+    only_date_str = date_str[:10]
+    only_date_list = only_date_str.split('-')
+    only_date_list.reverse()
+    only_date = '.'.join(only_date_list)
+    return (only_date)
+
