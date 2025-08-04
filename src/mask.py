@@ -1,5 +1,7 @@
-def get_mask_card_number(card_number: int) -> str:
-    """Функция возвращает маску номера карты"""
+def get_mask_card_number(card_number: str) -> str:
+    """
+    Функция возвращает маску номера карты
+    """
     card_number_list = list(str(card_number))
     new_char = "*"
     for i in range(6, 12):
@@ -13,8 +15,10 @@ def get_mask_card_number(card_number: int) -> str:
     return mask_number
 
 
-def get_mask_account(account: int) -> str:
-    """Функция возвращает маску номера счёта"""
+def get_mask_account(account: str) -> str:
+    """
+    Функция возвращает маску номера счёта
+    """
     account_list = list(str(account))
     mask_list = account_list[-6:]
     mask_list[0] = "*"
