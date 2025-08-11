@@ -14,10 +14,14 @@ def test_mask_account_card(value, expected):
     assert mask_account_card (value) == expected
 
 
-def test_get_date():
-    assert get_date('2024-03-11T02:26:18.671407') == '11.03.2024'
-    assert get_date('') == 'Данные отсутствуют'
-    assert get_date('abracadabra') == 'Ошибка ввода даты'
+@pytest.mark.parametrize ('value, expected', [
+    ('2024-03-11T02:26:18.671407', '11.03.2024'),
+    ('', 'Данные отсутствуют'),
+    ('abracadabra', 'Ошибка ввода даты')
+])
+def test_get_date(value, expected):
+    assert get_date(value) == expected
+
 
 
 
