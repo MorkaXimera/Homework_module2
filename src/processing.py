@@ -1,7 +1,7 @@
 from src.widget import get_date
 
 
-def filter_by_state(unfiltred_list: list, state='EXECUTED') -> list:
+def filter_by_state(unfiltred_list: list, state="EXECUTED") -> list | str:
     """
     Функция возвращает новый список словарей, содержащий только те словари, у которых ключ state
     соответствует указанному значению
@@ -14,19 +14,19 @@ def filter_by_state(unfiltred_list: list, state='EXECUTED') -> list:
         if len(filtred_list) != 0:
             return filtred_list
         else:
-            return ('Список не содержит указанных данных')
+            return "Список не содержит указанных данных"
     else:
-        return ('Пустой список')
+        return "Пустой список"
 
 
-def sort_by_date(unsorted_list: list, reverse=True) -> list:
+def sort_by_date(unsorted_list: list, reverse=True) -> list | str:
     """
     Функция возвращает новый список, отсортированный по дате
     """
     for dictionary in unsorted_list:
         new_value = get_date(dictionary["date"])
-        if new_value == 'Ошибка ввода даты' or new_value == 'Данные отсутствуют':
-            return ('Ошибка ввода даты')
+        if new_value == "Ошибка ввода даты" or new_value == "Данные отсутствуют":
+            return "Ошибка ввода даты"
         else:
             dictionary["date_changed"] = new_value
     sorted_by_date_list = sorted(unsorted_list, key=lambda x: x["date"], reverse=reverse)
