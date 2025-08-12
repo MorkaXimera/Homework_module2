@@ -13,6 +13,9 @@ git clone https://github.com/MorkaXimera/Homework_2.git
 pip install -r requirements.txt
 ```
 
+## Тестирование
+Проект дополнен тестами для функций 
+
 ## Документация:
 
 Для получения дополнительной информации обратитесь к [документации](docs/README.md).
