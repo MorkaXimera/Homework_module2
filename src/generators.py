@@ -1,3 +1,6 @@
+from email.generator import Generator
+
+
 def filter_by_currency(transactions: list, type="USD") -> list:
     """
     Функция возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной
@@ -15,7 +18,7 @@ def transaction_descriptions(transactions: list) -> list:
         yield transaction["description"]
 
 
-def card_number_generator(start=1: int, stop=10000000000000000: int) -> str:
+def card_number_generator(start=1, stop=10000000000000000) -> Generator:
     """
     Генератор выдает номера банковских карт в формате XXXX XXXX XXXX XXXX
     """

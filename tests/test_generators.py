@@ -31,7 +31,7 @@ def test_transaction_descriptions_no_list():
     assert list(transaction_descriptions(transactions)) == []
 
 
-def test_card_number_generator() ->str:
+def test_card_number_generator() -> str:
     generator = card_number_generator()
     assert next(generator) == "0000 0000 0000 0001"
     assert next(generator) == "0000 0000 0000 0002"
