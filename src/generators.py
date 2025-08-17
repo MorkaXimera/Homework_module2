@@ -1,22 +1,22 @@
-def filter_by_currency(transactions, type):
+def filter_by_currency(transactions, type='USD'):
     for transaction in transactions:
         if transaction['operationAmount']['currency']['name'] == type:
           yield transaction
 
 
 def transaction_descriptions(transactions):
-    while True:
-      for transaction in transactions:
+    for transaction in transactions:
           yield transaction['description']
 
 
-def card_number_generator(start, stop):
-    zero_number = '0000 0000 0000 0000'
+def card_number_generator(start=1, stop=10000000000000000):
+    zero_number = '0000000000000000'
     new_card_list = list(zero_number)
     for i in range(start, stop):
       new_chars = list(str(i))
       new_card_list = new_card_list[:-len(new_chars)]
       new_card_list = new_card_list + new_chars
       new_card_number = ''.join(new_card_list)
-      yield new_card_number
+      new_card_number_spaced = ' '.join(new_card_number[i:i+4] for i in range(0, len(new_card_number), 4))
+      yield new_card_number_spaced
 
