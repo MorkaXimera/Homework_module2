@@ -1,7 +1,7 @@
 from email.generator import Generator
 
 
-def filter_by_currency(transactions: list, type="USD") -> list:
+def filter_by_currency(transactions: list, type="USD") -> Generator:
     """
     Функция возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной
     """
@@ -10,7 +10,7 @@ def filter_by_currency(transactions: list, type="USD") -> list:
             yield transaction
 
 
-def transaction_descriptions(transactions: list) -> list:
+def transaction_descriptions(transactions: list) -> Generator:
     """
     Функция возвращает описание каждой операции
     """

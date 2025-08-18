@@ -9,7 +9,7 @@ def test_filter_by_state_canceled(processing_coll: list, filtred_canceled: list)
     assert filter_by_state(processing_coll, state="CANCELED") == filtred_canceled
 
 
-def test_filter_by_state_empty() -> str:
+def test_filter_by_state_empty() -> Union(str, list):
     assert filter_by_state("") == "Пустой список"
 
 

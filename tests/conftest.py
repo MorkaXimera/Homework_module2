@@ -78,7 +78,7 @@ def processing_coll_incorrect_date() -> list:
 
 
 @pytest.fixture
-def transactions_coll():
+def transactions_coll() -> list:
     return [
         {
             "id": 939719570,
@@ -129,7 +129,7 @@ def transactions_coll():
 
 
 @pytest.fixture
-def filtred_by_currency_usd():
+def filtred_by_currency_usd() -> list:
     return [
         {
             "id": 939719570,
@@ -162,7 +162,7 @@ def filtred_by_currency_usd():
 
 
 @pytest.fixture
-def description_call():
+def description_call() -> list:
     return [
         "Перевод организации",
         "Перевод со счета на счет",
@@ -173,5 +173,5 @@ def description_call():
 
 
 @pytest.fixture
-def description_call_usd():
+def description_call_usd() -> list:
     return ["Перевод организации", "Перевод со счета на счет", "Перевод с карты на карту"]

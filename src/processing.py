@@ -1,7 +1,9 @@
+from mypy.types_utils import AnyType
+
 from src.widget import get_date
 
 
-def filter_by_state(unfiltred_list: list, state="EXECUTED") -> list | str:
+def filter_by_state(unfiltred_list: list, state="EXECUTED") -> Union[list, str]:
     """
     Функция возвращает новый список словарей, содержащий только те словари, у которых ключ state
     соответствует указанному значению
@@ -19,7 +21,7 @@ def filter_by_state(unfiltred_list: list, state="EXECUTED") -> list | str:
         return "Пустой список"
 
 
-def sort_by_date(unsorted_list: list, reverse=True) -> list | str:
+def sort_by_date(unsorted_list: list, reverse=True) -> Union[list, str]:
     """
     Функция возвращает новый список, отсортированный по дате
     """
