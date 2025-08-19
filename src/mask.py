@@ -1,3 +1,6 @@
+from dbm import error
+
+
 def get_mask_card_number(card_number: str) -> str:
     """
     Функция возвращает маску номера карты
@@ -14,6 +17,8 @@ def get_mask_card_number(card_number: str) -> str:
                 mask_number = card_number_list[i] + mask_number
                 if (len(mask_number_str) - i) % 4 == 0 and i != 0:
                     mask_number = " " + mask_number
+                else:
+                    error
             return mask_number
         else:
             return "Номер карты должен содержать только цифры"
