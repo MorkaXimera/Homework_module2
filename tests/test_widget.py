@@ -15,7 +15,7 @@ from src.widget import get_date, mask_account_card
         ("123456", "Данные введены неверно"),
     ],
 )
-def test_mask_account_card(value: str, expected: str) -> str:
+def test_mask_account_card(value: str, expected: str) -> None:
     assert mask_account_card(value) == expected
 
 
@@ -23,5 +23,5 @@ def test_mask_account_card(value: str, expected: str) -> str:
     "value, expected",
     [("2024-03-11T02:26:18.671407", "11.03.2024"), ("", "Данные отсутствуют"), ("abracadabra", "Ошибка ввода даты")],
 )
-def test_get_date(value: str, expected: str) -> str:
+def test_get_date(value: str, expected: str) -> None:
     assert get_date(value) == expected
