@@ -1,5 +1,6 @@
-from src.widget import get_date
 from typing import Any
+
+from src.widget import get_date
 
 
 def filter_by_state(unfiltred_list: Any, state: str = "EXECUTED") -> list | str:
