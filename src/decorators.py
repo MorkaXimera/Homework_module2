@@ -23,8 +23,10 @@ def log(filename: Any = None) -> Any:
                         f.write(f"{start_time} \n{end_time}\n{result_message}\n")
             except Exception as e:
                 end_time = f"{func.__name__} закончила работу {datetime.datetime.now()}"
-                result_message = (f"{func.__name__} завершила программу с ошибкой: {type(e).__name__}, "
-                                  f"входные параметры {args}, {kwargs}")
+                result_message = (
+                    f"{func.__name__} завершила программу с ошибкой: {type(e).__name__}, "
+                    f"входные параметры {args}, {kwargs}"
+                )
                 if filename is None:
                     print(f"{start_time} \n{end_time}\n{result_message}\n")
                 else:
