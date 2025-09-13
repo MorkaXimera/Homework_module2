@@ -1,0 +1,31 @@
+import pytest
+from src.utils import json_read
+from unittest.mock import mock_open, patch
+import unittest
+
+
+class TestReadJsonFile(unittest.TestCase):
+    def test_json_read_file(self):
+        mock_data = '{"key": "value"}'
+        with patch('builtins.open', mock_open(read_data=mock_data)):
+            result = json_read('dummy_path.json')
+            self.assertEqual(result, {"key": "value"})
+
+
+
+def test_json_read_incorrect_file():
+    assert json_read('C:/Users/morka/PycharmProjects/Homework_2/tests/nofile.json') == "Невозможно открыть файл"
+
+
+def test_json_read_no_path():
+    assert json_read() == "Невозможно открыть файл"
+
+
+def test_json_read_not_str():
+    assert json_read(123) == "Невозможно открыть файл"
+
+
+
+
+
+

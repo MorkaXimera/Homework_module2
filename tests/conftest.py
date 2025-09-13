@@ -175,3 +175,7 @@ def description_call() -> list:
 @pytest.fixture
 def description_call_usd() -> list:
     return ["Перевод организации", "Перевод со счета на счет", "Перевод с карты на карту"]
+
+
+
+

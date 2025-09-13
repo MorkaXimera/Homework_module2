@@ -2,6 +2,7 @@ import requests
 from utils import json_read
 import os
 from dotenv import load_dotenv
+load_dotenv('.env')
 
 def transaction_amount():
     path = r'C:\Users\morka\PycharmProjects\Homework_2\data\operations.json'
@@ -24,6 +25,6 @@ def transaction_amount():
                     print(result['result'])
                 else:
                     print('Не удалось перевести валюту в рубли')
+                    print(status_code)
         else:
             print('Нет информации о сумме транзакции')
-
