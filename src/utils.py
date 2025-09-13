@@ -10,7 +10,3 @@ def json_read(path='no.json'):
             return (json_information)
     except FileNotFoundError:
         return ("Невозможно открыть файл")
-
-print(json_read())
-
-
