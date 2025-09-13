@@ -10,10 +10,8 @@ def log(filename: Any = None) -> Any:
 
     def log_decorator(func: Any) -> Any:
         def wrapper(*args: tuple, **kwargs: dict) -> Any:
-            start_time = 0
             try:
                 start_time = f"{func.__name__} начала работу {datetime.datetime.now()}"
-                result = func(*args, **kwargs)
                 end_time = f"{func.__name__} закончила работу {datetime.datetime.now()}"
                 result_message = f"{func.__name__} статус: ок"
                 if filename is None:

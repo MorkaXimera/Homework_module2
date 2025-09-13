@@ -29,5 +29,5 @@ def card_number_generator(start: int = 1, stop: int = 10000000000000000) -> Gene
         new_card_list = new_card_list[: -len(new_chars)]
         new_card_list = new_card_list + new_chars
         new_card_number = "".join(new_card_list)
-        new_card_number_spaced = " ".join(new_card_number[i: i + 4] for i in range(0, len(new_card_number), 4))
+        new_card_number_spaced = " ".join(new_card_number[i:i + 4] for i in range(0, len(new_card_number), 4))
         yield new_card_number_spaced
