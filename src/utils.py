@@ -30,6 +30,3 @@ def json_read(path: Any = "no.json") -> Any:
     except FileNotFoundError:
         logger.error(f"Файл не найден по пути {correct_path}")
         return []
-
-
-print(json_read("C:/Users/morka/PycharmProjects/Homework_2/data/operations.json"))

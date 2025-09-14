@@ -66,7 +66,3 @@ def get_mask_account(account: str) -> str:
     else:
         logger.error("Неверная длина номера счета")
         return "Неверная длина номера счета"
-
-
-print(get_mask_card_number("1111222233a34444"))
-print(get_mask_account("111112c2223333344444"))
