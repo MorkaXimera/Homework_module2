@@ -12,4 +12,4 @@ def json_read(path: Any = "no.json") -> Any:
             json_information = json.load(f)
             return json_information
     except FileNotFoundError:
-        return "Невозможно открыть файл"
+        return []

@@ -13,12 +13,12 @@ class TestReadJsonFile(unittest.TestCase):
 
 
 def test_json_read_incorrect_file() -> None:
-    assert json_read("C:/Users/morka/PycharmProjects/Homework_2/tests/nofile.json") == "Невозможно открыть файл"
+    assert json_read("C:/Users/morka/PycharmProjects/Homework_2/tests/nofile.json") == []
 
 
 def test_json_read_no_path() -> None:
-    assert json_read() == "Невозможно открыть файл"
+    assert json_read() == []
 
 
 def test_json_read_not_str() -> None:
-    assert json_read(123) == "Невозможно открыть файл"
+    assert json_read(123) == []

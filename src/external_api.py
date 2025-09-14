@@ -30,7 +30,7 @@ def get_transaction_amount(transactions_list: list) -> Any:
             elif dict["operationAmount"]["currency"]["code"] == "EUR" or "USD":
                 url = (
                     f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from="
-                    f'{dict["operationAmount"]["currency"]["code"]}USD&amount=5{dict["operationAmount"]["amount"]}'
+                    f'{dict["operationAmount"]["currency"]["code"]}&amount={dict["operationAmount"]["amount"]}'
                 )
                 payload: list = []
                 headers = HEADERS
