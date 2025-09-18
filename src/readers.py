@@ -14,3 +14,6 @@ def xlsx_reader(excel_file_path) -> list:
     '''
     Функция позволяет прочесть транзакции из файла в формате .xlsx и возвращает список словарей
     '''
+    transaction_df = pd.read_excel(excel_file_path)
+    transaction_list = transaction_df.to_dict(orient='records')
+    return transaction_list
