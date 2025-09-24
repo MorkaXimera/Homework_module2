@@ -12,6 +12,10 @@ def test_csv_reader_invalid_file():
     assert csv_reader("C:/Users/morka/PycharmProjects/Homework_2/tests/nofile.csv") == []
 
 
+def test_csv_reader_not_path():
+    assert csv_reader(123) == []
+
+
 @patch('pandas.read_csv')
 def test_csv_reader(mock_read_csv):
     mock_data = ([{'id': 4137938.0,
@@ -39,8 +43,14 @@ def test_csv_reader(mock_read_csv):
 def test_xlsx_reader_no_file():
     assert xlsx_reader() == []
 
+
 def test_xlsx_reader_invalid_file():
-    assert csv_reader("C:/Users/morka/PycharmProjects/Homework_2/tests/nofile.csv") == []
+    assert xlsx_reader("C:/Users/morka/PycharmProjects/Homework_2/tests/nofile.csv") == []
+
+
+def test_xlsx_reader_not_path():
+    assert xlsx_reader(123) == []
+
 
 @patch('pandas.read_excel')
 def test_xlsx_reader(mock_read_excel):
