@@ -1,5 +1,7 @@
 from typing import Any, Dict, Generator
 
+from tests.conftest import filtred_by_currency_usd
+
 
 def filter_by_currency(transactions: list, type: str = "USD") -> Generator[Dict[str, Any], None, None]:
     """
@@ -31,3 +33,39 @@ def card_number_generator(start: int = 1, stop: int = 10000000000000000) -> Gene
         new_card_number = "".join(new_card_list)
         new_card_number_spaced = " ".join(new_card_number[i : i + 4] for i in range(0, len(new_card_number), 4))
         yield new_card_number_spaced
+
+
+def get_currency_transactions(transactions: list, type: str = "RUB") -> list:
+    """
+    Функция принимает на вход список транзакций и возвращает отфильтрованный по выбранной валюте
+    """
+    filtred_by_currency_list = []
+    for transaction in transactions:
+        try:
+            if transaction['currency_code'] == type:
+                filtred_by_currency_list.append(transaction)
+            else:
+                continue
+        except KeyError:
+            continue
+
+    return (filtred_by_currency_list)
+
+def get_currency_transactions_json(transactions: list, type: str = "RUB") -> list:
+    """
+    Функция принимает на вход список транзакций из json файла и возвращает отфильтрованный по выбранной валюте
+    """
+    filtred_by_currency_list = []
+    for transaction in transactions:
+        try:
+            if transaction["operationAmount"]["currency"]["code"] == type:
+                filtred_by_currency_list.append(transaction)
+            else:
+                continue
+        except KeyError:
+            continue
+    return (filtred_by_currency_list)
+
+
+
+
