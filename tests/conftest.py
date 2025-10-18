@@ -205,3 +205,8 @@ def transaction_dict_usd() -> list:
             "to": "Счет 11776614605963066702",
         }
     ]
+
+
+@pytest.fixture
+def categories_coll() -> list:
+    return ["Перевод организации", "Перевод со счета на счет", "Перевод с карты на карту"]
