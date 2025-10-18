@@ -1,7 +1,8 @@
+from typing import Any
 from unittest.mock import patch
+
 import pandas as pd
 
-from typing import Any
 from src.readers import csv_reader, xlsx_reader
 
 
@@ -18,7 +19,7 @@ def test_csv_reader_not_path() -> None:
 
 
 @patch("pandas.read_csv")
-def test_csv_reader(mock_read_csv : Any) -> None:
+def test_csv_reader(mock_read_csv: Any) -> None:
     mock_data = [
         {
             "id": 4137938.0,
@@ -62,7 +63,7 @@ def test_xlsx_reader_not_path() -> None:
 
 
 @patch("pandas.read_excel")
-def test_xlsx_reader(mock_read_excel : Any) -> None:
+def test_xlsx_reader(mock_read_excel: Any) -> None:
     mock_data = [
         {
             "id": 4137938.0,

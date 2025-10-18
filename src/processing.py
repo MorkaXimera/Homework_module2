@@ -11,8 +11,11 @@ def filter_by_state(unfiltred_list: Any, state: str = "EXECUTED") -> list | str:
     if len(unfiltred_list) != 0:
         filtred_list = []
         for dictionary in unfiltred_list:
-            if dictionary["state"] == state:
-                filtred_list.append(dictionary)
+            try:
+                if dictionary["state"] == state:
+                    filtred_list.append(dictionary)
+            except KeyError:
+                continue
         if len(filtred_list) != 0:
             return filtred_list
         else:
@@ -21,7 +24,7 @@ def filter_by_state(unfiltred_list: Any, state: str = "EXECUTED") -> list | str:
         return "Пустой список"
 
 
-def sort_by_date(unsorted_list: list, reverse: bool = True) -> list | str:
+def sort_by_date(unsorted_list: list | str, reverse: bool = True) -> list | str:
     """
     Функция возвращает новый список, отсортированный по дате
     """

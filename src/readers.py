@@ -1,9 +1,9 @@
-import pandas as pd
-
 from typing import Any
 
+import pandas as pd
 
-def csv_reader(csv_file_path : str ="no.csv") -> list[Any]:
+
+def csv_reader(csv_file_path: Any = "no.csv") -> list[Any]:
     """
     Функция позволяет прочесть транзакции из файла в формате .csv и возвращает список словарей
     """
@@ -16,7 +16,7 @@ def csv_reader(csv_file_path : str ="no.csv") -> list[Any]:
         return []
 
 
-def xlsx_reader(excel_file_path : str ="no.xlsx") -> list[Any]:
+def xlsx_reader(excel_file_path: Any = "no.xlsx") -> list[Any]:
     """
     Функция позволяет прочесть транзакции из файла в формате .xlsx и возвращает список словарей
     """
