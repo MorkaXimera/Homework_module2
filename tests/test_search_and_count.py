@@ -1,8 +1,9 @@
 from src.search_and_count import process_bank_operations, process_bank_search
 
 
-def test_process_bank_search_right_information(transactions_coll: list, search: str = "Перевод организации") -> (
-        list | None):
+def test_process_bank_search_right_information(
+    transactions_coll: list, search: str = "Перевод организации"
+) -> list | None:
     assert process_bank_search(transactions_coll, search) == [
         {
             "id": 939719570,
@@ -41,7 +42,7 @@ def test_process_bank_operations_right_information(transactions_coll: list, cate
     assert process_bank_operations(transactions_coll, categories_coll) == {
         "Перевод организации": 2,
         "Перевод со счета на счет": 2,
-        "Перевод с карты на карту": 1
+        "Перевод с карты на карту": 1,
     }
 
 
