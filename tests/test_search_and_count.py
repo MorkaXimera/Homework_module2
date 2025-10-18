@@ -1,9 +1,9 @@
-from re import search
+from src.search_and_count import process_bank_operations, process_bank_search
 
-from src.search_and_count import process_bank_search, process_bank_operations
 
-def test_process_bank_search_right_information(transactions_coll, search = 'Перевод организации'):
-	assert process_bank_search (transactions_coll, search) == [
+def test_process_bank_search_right_information(transactions_coll: list, search: str = "Перевод организации") -> (
+        list | None):
+    assert process_bank_search(transactions_coll, search) == [
         {
             "id": 939719570,
             "state": "EXECUTED",
@@ -25,25 +25,29 @@ def test_process_bank_search_right_information(transactions_coll, search = 'Пе
     ]
 
 
-def test_process_bank_search_no_search(transactions_coll):
-	assert process_bank_search(transactions_coll) == []
+def test_process_bank_search_no_search(transactions_coll: list) -> list | None:
+    assert process_bank_search(transactions_coll) == []
 
 
-def test_process_bank_search_error (transactions_coll, search = 'abc'):
-	assert process_bank_search(transactions_coll, search) == []
+def test_process_bank_search_error(transactions_coll: list, search: str = "abc") -> list | None:
+    assert process_bank_search(transactions_coll, search) == []
 
 
-def test_process_bank_search_no_transactions():
-	assert process_bank_search(search='abc') == []
+def test_process_bank_search_no_transactions() -> list | None:
+    assert process_bank_search(search="abc") == []
 
 
-def test_process_bank_operations_right_information(transactions_coll,categories_coll):
-	assert process_bank_operations(transactions_coll,categories_coll) == {'Перевод организации':2, 'Перевод со счета на счет': 2, "Перевод с карты на карту": 1}
+def test_process_bank_operations_right_information(transactions_coll: list, categories_coll: list) -> dict | None:
+    assert process_bank_operations(transactions_coll, categories_coll) == {
+        "Перевод организации": 2,
+        "Перевод со счета на счет": 2,
+        "Перевод с карты на карту": 1
+    }
 
 
-def test_process_bank_operations_no_data(categories_coll):
-	assert process_bank_operations(categories = categories_coll) == {}
+def test_process_bank_operations_no_data(categories_coll: list) -> dict | None:
+    assert process_bank_operations(categories=categories_coll) == {}
 
 
-def test_process_bank_operations_no_cat(transactions_coll):
-	assert process_bank_operations(data = transactions_coll) == {}
+def test_process_bank_operations_no_cat(transactions_coll: list) -> dict | None:
+    assert process_bank_operations(data=transactions_coll) == {}
